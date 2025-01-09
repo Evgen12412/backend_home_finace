@@ -14,12 +14,14 @@ class User(BaseModel):
     photo: Optional[str] = None
 
 
+
     class Config:
         json_schema_extra = {
             "example": {
                 "login": "exmp",
                 "password": "strong!!!",
-                "photo": "_"
+                "photo": "_",
+
             }
         }
 
@@ -27,6 +29,7 @@ class NewUser(User):
     telegram: str
     login: str
     password: str
+
 
 
 class UserSignIn(BaseModel):

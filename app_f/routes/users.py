@@ -33,7 +33,7 @@ async def sign_new_user(data: NewUser, session: Session = Depends(get_session)) 
         telegram=data.telegram,
         login=data.login,
         password=hashed_password,  # Сохраняем хэшированный пароль
-        photo=data.photo
+        photo=data.photo,
     )
 
     session.add(new_user)
@@ -70,5 +70,6 @@ async def sign_user_in(user: UserSignIn, session: Session = Depends(get_session)
         )
 
     return {
-        "message": "User signed in successfully"
+        "message": "User signed in successfully",
+        "login": user_exists.login
     }
